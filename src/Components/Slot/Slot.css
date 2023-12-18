@@ -1,0 +1,13 @@
+
+.slot::before {
+    content: "";
+    background-color: white;
+    transform-origin: left;
+    transition: all 0.8s;
+    z-index: -1;
+    top: 0px;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    position: absolute;
+}
