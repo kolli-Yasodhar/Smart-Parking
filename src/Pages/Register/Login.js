@@ -101,9 +101,6 @@ const Login = () => {
         </div>
       </div>
 
-      <div>
-        <h1 className='text-2xl '>Customer :-  &nbsp; &nbsp; <span className='py-2 px-4 bg-yellow-200 rounded-full cursor-pointer' onClick={handleCustomerClick}>Click here</span></h1>
-      </div>
 
     </div>
   )
