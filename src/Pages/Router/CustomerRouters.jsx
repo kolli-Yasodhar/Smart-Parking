@@ -1,9 +1,13 @@
 import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import UserPage from '../User/UserPage'
 
 const CustomerRouters = () => {
   return (
     <div>
-        <h1>These are customer pages</h1>
+        <Routes> 
+           <Route path='/' element={<UserPage/>} />
+        </Routes>
     </div>
   )
 }
