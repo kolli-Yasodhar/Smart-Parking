@@ -15,7 +15,7 @@ const ViewParkingSlot = () => {
           <h1 className='text-2xl font-serif '>Two Wheeler Slots</h1>
         </div>
 
-        <div>
+        <div className=''>
           <GroupedSlots />
         </div>
 
@@ -42,7 +42,7 @@ const ViewParkingSlot = () => {
 
       </div>
 
-      <div className='h-[67vh] w-full border'>
+      <div className='h-[67vh] w-full border   '>
 
         <div className='h-[10vh] flex items-center justify-center border'>
           <h1 className='text-2xl font-serif'>Four Wheeler Slots</h1>
@@ -58,6 +58,7 @@ const ViewParkingSlot = () => {
 
       </div>
 
+      
 
     </div>
   )

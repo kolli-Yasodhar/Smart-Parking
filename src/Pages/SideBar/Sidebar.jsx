@@ -29,13 +29,13 @@ const Sidebar = () => {
   function handleTabChange(title) {
 
     if (title === "dashboard") {
-      navigate(`/`)
+      navigate(`/admin/dashboard`)
     } else if (title === "updatePrice") {
-      navigate(`/admin/update/prices`)
+      navigate(`/admin/update`)
     } else if (title === "addSlot") {
       navigate("/admin/add/slot")
     } else if (title === "viewSlots") {
-      navigate("/admin/view/slots");
+      navigate("/admin/view/slot");
     }
 
     console.log("Current Tab -", title);
