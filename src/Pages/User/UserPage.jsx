@@ -1,8 +1,23 @@
+import "./Style.css";
 import React from 'react'
-
-const UserPage = () => {
+import Home from "./components/Home";
+import About from "./components/About";
+import Work from "./components/Work";
+import Services from "./components/Services";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+// import Navbarr from "./components/Navbarr";
+function UserPage(){
   return (
-    <div>Im Adarsh</div>
+    <div>
+      {/* <Navbarr/> */}
+      <Home />
+      <About />
+      <Work />
+      <Services />
+      <Contact />
+      <Footer />
+    </div>
   )
 }
 
