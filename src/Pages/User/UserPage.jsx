@@ -2,8 +2,9 @@ import React from 'react'
 
 const UserPage = () => {
   return (
-    <div>Im Adarsh</div>
+    <div><p className=''></p>
+    </div>
   )
 }
 
-export default UserPage
+export default UserPage;
