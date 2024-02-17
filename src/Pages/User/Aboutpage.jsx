@@ -5,22 +5,6 @@ export const Aboutpage = () => {
   return (
     
     <main className='font-serif'>
-    <div className='h-16 bg-white flex justify-between'>
-      <a href="UserPage" className='flex justify-start'>
-          <img src="https://www.parkspot.in/img/psfooterlogo.71c15c61.png" alt="location" className='mt-3 mb-3 ml-7'/>
-      </a>
-      <select className='font-medium border-slate-200 rounded-md mt-3 mb-3'>
-        <option value="COMPANY" className='flex justify-start'>COMPANY</option>
-        <option value="Go To About" className='flex justify-start'>Go To About</option>
-        <option value="Features" className='flex justify-start'>Features</option>
-      </select>
-      <div className='flex justify-start'>
-      <button className='mr-16'>contact-us</button>
-      <button className='bg-amber-500 px-3 py-3 mt-3 mb-3 font-medium rounded-xl mr-7 '>Log-in</button>
-      </div>
-    </div>
-
-
 
     <div className='flex justify-center mt-24 '>
       <div>
@@ -40,11 +24,10 @@ export const Aboutpage = () => {
       <img src="https://www.parkspot.in/img/google-play-badge.15f23d4c.svg" alt="playStore" className='h-9 ml-5'/>
       <img src="https://www.parkspot.in/img/apple-store.8983136c.svg" alt="apple" className='h-9 ml-5'/></p>
       </div>
-        
     </div>
     <div>
       <Footer/>
     </div>
     </main>
   )
-}
+}                      
