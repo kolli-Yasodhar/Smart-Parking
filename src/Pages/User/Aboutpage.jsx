@@ -21,8 +21,12 @@ export const Aboutpage = () => {
       the need for entry barriers at car park entrances and exits for a seamless flow <br />
       of traffic, as vehicle plates will be registered via cameras.</p>
       <p className='mt-16 flex '>Get ParkSpot App 
-      <img src="https://www.parkspot.in/img/google-play-badge.15f23d4c.svg" alt="playStore" className='h-9 ml-5'/>
-      <img src="https://www.parkspot.in/img/apple-store.8983136c.svg" alt="apple" className='h-9 ml-5'/></p>
+      <a href="https://www.appcracy.com/app/google-play-store/">
+          <img src="https://www.parkspot.in/img/google-play-badge.15f23d4c.svg" alt="playStore" className='h-9 ml-5'/>
+      </a>
+      <a href="https://www.microsoft.com/en-in/store/top-free/apps/pc">
+        <img src="https://www.parkspot.in/img/apple-store.8983136c.svg" alt="app-store" className='h-9 ml-5'/>
+      </a></p>
       </div>
     </div>
     <div>
@@ -30,4 +34,4 @@ export const Aboutpage = () => {
     </div>
     </main>
   )
-}                      
+}
