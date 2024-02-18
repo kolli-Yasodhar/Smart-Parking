@@ -16,17 +16,10 @@ export const Aboutpage = () => {
       security of your vehicle. Available for residents and visitors. Surveillance <br />
       parking. Simple steps to list property. Earn money on the go. Available on <br />
       app and website.</p>
-      <p className='mt-3'>ParkSpot is part of this new initiative and incorporates various features aimed at improving<br/> 
-      the parking experience for residents and visitors. These will include removing <br />
-      the need for entry barriers at car park entrances and exits for a seamless flow <br />
-      of traffic, as vehicle plates will be registered via cameras.</p>
-      <p className='mt-16 flex '>Get ParkSpot App 
-      <a href="https://www.appcracy.com/app/google-play-store/">
-          <img src="https://www.parkspot.in/img/google-play-badge.15f23d4c.svg" alt="playStore" className='h-9 ml-5'/>
-      </a>
-      <a href="https://www.microsoft.com/en-in/store/top-free/apps/pc">
-        <img src="https://www.parkspot.in/img/apple-store.8983136c.svg" alt="app-store" className='h-9 ml-5'/>
-      </a></p>
+      <p className='mt-3'>ParkNow is part of this new initiative and incorporates various features aimed at<br/> 
+      improving the parking experience for residents and visitors. These will include <br />
+      removing the need for entry barriers at car park entrances and exits for a seam-<br />
+      less flow of traffic, as vehicle plates will be registered via cameras.</p>
       </div>
     </div>
     <div>
