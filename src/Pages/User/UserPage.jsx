@@ -6,19 +6,20 @@ import Work from "./components/Work";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-// import Navbarr from "./components/Navbarr";
+import Navbar from "./components/Navbar";
+
 function UserPage(){
   return (
     <div>
-      {/* <Navbarr/> */}
+      <Navbar/>
       <Home />
       <About />
       <Work />
       <Services />
       <Contact />
       <Footer />
-    </div>
+    </div> 
   )
 }
 
-export default UserPage
+export default UserPage;

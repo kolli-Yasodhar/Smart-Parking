@@ -89,12 +89,14 @@
     color: #4c4c4c;
     /* line-height: 5rem; */
     max-width: 600px;
+    margin-left: 15px;
   }
   .primary-text {
     font-size: clamp(1rem, 3vw, 1.5rem);
     max-width: 500px;
     color: #6a6a6a;
     margin: 1.5rem 0rem;
+    margin-left: 15px;
   }
   .secondary-button {
     padding: 1rem 2.5rem;
@@ -429,4 +431,36 @@
       display: none;
     }
   }
-  
+
+.footerCon{
+  color:white;
+  background-color: rgb(28, 32, 37);
+  margin: 0;
+  padding: 0;
+  height: 40vh;
+  width: 100vw;
+  padding-left: 13px;
+}
+
+.company{
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+.contact{
+  margin-left: 750px;
+  font-weight: bold;
+}
+
+.login{
+  background-color: #e48f0f;
+  margin-top: 19px ;
+  margin-bottom: 19px;
+  margin-left: 59px;
+  border-radius: 7px;
+  padding: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
