@@ -6,11 +6,11 @@ import Work from "./components/Work";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-// import Navbarr from "./components/Navbarr";
+import Navbar from "./Components2/Navbar";
 function UserPage(){
   return (
     <div>
-      {/* <Navbarr/> */}
+      <Navbar/>
       <Home />
       <About />
       <Work />
