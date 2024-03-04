@@ -13,11 +13,6 @@ function App() {
        <Routes>
           <Route path='/*' element={<CustomerRouters/>} />
           <Route path='/admin/*' element={<AdminRouters/>} /> 
-          <Route path='/User/*' element={<UserPage/>} />
-          <Route path='/About/*' element={<Aboutpage/>} />
-          <Route path='/Register/*' element={<Login/>} />
-          <Route path='/Signup/*' element={<Signup/>} />
-          <Route path='/Contact/*' element={<Contact/>} />
        </Routes>
        
    </div>
