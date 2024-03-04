@@ -1,12 +1,14 @@
 import React from 'react'
 import Footer from './Footer'
+import Navbar from './components/Navbar'
 
 export const Aboutpage = () => {
   return (
     
     <main className='font-serif'>
+      <Navbar/>
 
-    <div className='flex justify-center mt-24 '>
+    <div className='flex justify-center mt-24'>
       <div>
       <img src="https://www.parkspot.in/img/about.1901ddea.svg" alt="mobile-location" className='h-96'/>
       </div>

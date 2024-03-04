@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "./Assets/Logo.png";
+//import Logo from "./Assets/Logo.png";
 import { BsTwitter } from "react-icons/bs";
 import { SiLinkedin } from "react-icons/si";
 import { BsYoutube } from "react-icons/bs";
@@ -13,13 +13,13 @@ const Footer = () => {
       <div className="footer-wrapper">
       <div className="footer-section-one">
         <div className="footer-logo-container ml-2">
-          <img src={Logo} alt="not found" />
+          <img src="https://plat4mation.com/wp-content/uploads/2019/11/PARK-NOW-logo-450x160-1.png" alt="not found" />
         </div>
         <div className="footer-icons ml-2">
           <BsTwitter />
           <SiLinkedin />
           <BsYoutube />
-          <FaFacebookF />
+          <FaFacebookF /> 
         </div>
       </div>
       <div className="footer-section-two">

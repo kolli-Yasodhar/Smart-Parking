@@ -6,18 +6,18 @@ const Navbar = () => {
     
     <main className='font-serif'>
     <div className='h-16 bg-white flex justify-start align-middle'>
-      <a href="UserPage" className='flex justify-start h-16 ml-3'>
-          <img src="https://tse4.mm.bing.net/th?id=OIP.xSoWcIe7q7ErhRqM57xU-QHaHa&pid=Api&P=0&h=180" alt="location" />
-          <p className='font-bold text-2xl -ml-1 mt-9 text-red-500'>ParkNow</p>
+      <a href="User" className='flex justify-start h-16 ml-3'>
+          <img src="https://plat4mation.com/wp-content/uploads/2019/11/PARK-NOW-logo-450x160-1.png" alt="location" />
       </a>
 
-      <div>
-        <a href="Aboutpage">Go</a>
+      <div className='ml-11 flex items-center font-bold'>
+        <a href="About">About</a>
+        <a href="Features" className='ml-9'>Features</a>
       </div>
 
       <div className='flex justify-start'>
-      <button className='contact mr-3'>contact-us</button>
-      <button className='login'>Log-in</button>
+      <a href="Contact" className='contact mr-3 flex items-center'>Contact-Us</a>
+      <a href="Register" className='login'>Login</a>
       </div>
     </div>
     </main>

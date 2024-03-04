@@ -21,7 +21,7 @@ const About = () => {
         Comfortable parking experience. Brokerage free. Genuine Owners. Ensured security of your vehicle. Available for residents and visitors. Surveillance parking. Simple steps to list property. Earn money on the go. Available on app and website.
         </p>
         <p className="primary-text">
-        ParkSpot is part of this new initiative and incorporates various features aimed at improving the parking experience for residents and visitors. These will include removing the need for entry barriers at car park entrances and exits for a seamless flow of traffic, as vehicle plates will be registered via cameras.
+        ParkNow is part of this new initiative and incorporates various features aimed at improving the parking experience for residents and visitors. These will include removing the need for entry barriers at car park entrances and exits for a seamless flow of traffic, as vehicle plates will be registered via cameras.
         </p>
         <div className="about-buttons-container">
           <button className="secondary-button">Learn More</button>
