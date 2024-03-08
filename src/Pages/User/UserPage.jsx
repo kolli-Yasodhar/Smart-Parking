@@ -18,7 +18,7 @@ function UserPage(){
       <Work />
       <Services />
       <Contact />
-      <Footer />
+      {/* <Footer /> */}
     </div> 
   )
 }

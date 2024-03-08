@@ -9,7 +9,7 @@ const Work = () => {
     {
       image: PickMeals,
       title: "Navigation",
-      text: "It is easy to find places like malls, hospitals, and much more popular sites, but when it comes to finding a specific location like a house, ParkSpot stores the exact location of the parking location and gives a navigation feature that will direct the ParkSpot user to navigate to the desired parking space.This easy-finding feature helps let users experience a hassle-free parking experience",
+      text: "It is easy to find places like malls, hospitals, and much more popular sites, but when it comes to finding a specific location like a house, ParkNow stores the exact location of the parking location and gives a navigation feature that will direct the ParkNow user to navigate to the desired parking space.This easy-finding feature helps let users experience a hassle-free parking experience",
     },
     {
       image: ChooseMeals,
@@ -19,12 +19,12 @@ const Work = () => {
     {
       image: DeliveryMeals,
       title: "Searching",
-      text: "People love their cars & hence they would want to keep their vehicles in a safe & secure parking area. They would want a parking area where there will be security guards, CCTV cameras, etc. ParkSpot provides a genuine and authentic parking space for its users so that no mishappening will be done to the user’s property. ParkSpot provides security to private property,so that users don’t need to worry about the place where they are keeping their vehicles.",
+      text: "People love their cars & hence they would want to keep their vehicles in a safe & secure parking area. They would want a parking area where there will be security guards, CCTV cameras, etc. ParkNow provides a genuine and authentic parking space for its users so that no mishappening will be done to the user’s property. ParkNow provides security to private property,so that users don’t need to worry about the place where they are keeping their vehicles.",
     },
     {
       image: DeliveryMeals,
       title: "Safety & Security",
-      text: "People go to places like shopping malls, hospitals, and many local areas with their cars, without thinking that there may not be available car parking spaces. Maps can help you search popular sites but ParkSpot along with search provides additional information like current availability, rates, distance, etc. ParkSpot also helps users to search apartment parking areas.",
+      text: "People go to places like shopping malls, hospitals, and many local areas with their cars, without thinking that there may not be available car parking spaces. Maps can help you search popular sites but ParkNow along with search provides additional information like current availability, rates, distance, etc. ParkNow also helps users to search apartment parking areas.",
     }
   ];
   return (

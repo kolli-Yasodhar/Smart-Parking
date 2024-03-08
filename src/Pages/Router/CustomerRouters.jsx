@@ -6,6 +6,7 @@ import Footer from '../User/Footer'
 import Login from '../Register/Login'
 import Signup from '../Register/Signup'
 import Contact from '../User/components/Contact'
+import FeaturePage from '../User/FeaturePage'
 
 const CustomerRouters = () => {
   return (
@@ -13,11 +14,10 @@ const CustomerRouters = () => {
         <Routes> 
            <Route path='/' element={<UserPage/>} />
            <Route path='/about' element={<Aboutpage/>} />
-           <Route path='/User' element={<UserPage/>} />
-          <Route path='/About' element={<Aboutpage/>} />
-          <Route path='/Register' element={<Login/>} />
-          <Route path='/Signup' element={<Signup/>} />
-          <Route path='/Contact' element={<Contact/>} />
+          <Route path='/login' element={<Login/>} />
+          <Route path='/signup' element={<Signup/>} />
+          <Route path='/contact' element={<Contact/>} />
+          <Route path='/features' element={<FeaturePage/>} />
         </Routes>
     </div>
   )

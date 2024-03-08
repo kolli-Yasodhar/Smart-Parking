@@ -18,7 +18,7 @@ const Work = () => {
     {
       image: saftey_security,
       title: "Saftey And Security",
-      text: "Don't worry, we got you covered. Choose the safety features like CCTV, Securtiy guard etc. ",
+      text: "Don't worry, we got you covered the safety features like CCTV, Securtiy guard etc. ",
     },
   ];
   return (
@@ -27,9 +27,9 @@ const Work = () => {
         <p className="primary-subheading">Comming To Its Working </p>
         <h1 className="primary-heading">How It Works</h1>
         <p className="primary-text">
-        Machine vision systems or VANETs can be used instead of using sensors. Usage of multiple systems is supported in this architecture. These systems are suitable for both open and closed parking lots. The expenditure would be dependent on the usage of technology to identify occupancy status of parking spaces.
+        {/* Machine vision systems or VANETs can be used instead of using sensors. Usage of multiple systems is supported in this architecture. These systems are suitable for both open and closed parking lots. The expenditure would be dependent on the usage of technology to identify occupancy status of parking spaces.
 
-        <h1>In case of sensors</h1>
+        <h1>In case of sensors</h1> */}
         <p>Sensors are used to detect and track the location of vehicles in the parking lot. They collect occupancy data which is then relayed to a control unit. The system requires sensors to detect and monitor the availability of parking spaces.</p>
         </p>
       </div>

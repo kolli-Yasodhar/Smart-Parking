@@ -7,10 +7,10 @@ import { FaFacebookF } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="footer-wrapper">
-      <div className="footer-section-one">
+    <div className="footer-wrapper border-t-2 pt-10">
+      <div className="footer-section-one ml-2">
         <div className="footer-logo-container">
-          <img src={Logo} alt="" />
+              <p className="text-2xl" >Connect </p>
         </div>
         <div className="footer-icons">
           <BsTwitter />
