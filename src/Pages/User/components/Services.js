@@ -1,6 +1,7 @@
 import React from "react";
 import { AiFillStar } from "react-icons/ai";
 import ReviewCard from "./ReviewCard";
+import Reviews from "./Reviews";
 
 const Services = () => {
   return (
@@ -14,9 +15,9 @@ const Services = () => {
       </div>
 
         {/* Reviews */}
-        <div className="flex" >
+        <div>
 
-          {[1,1,1,1].map(item => <ReviewCard/>)}
+          <Reviews/>
 
         </div>
 
