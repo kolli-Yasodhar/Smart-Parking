@@ -11,7 +11,6 @@ function App() {
         <Routes>
           <Route path='/*' element={<CustomerRouters/>} />
           <Route path='/admin/*' element={<AdminRouters/>} /> 
-          <Route path='/booking/*' element={<BookingPage/>} /> 
        </Routes>
 
    </div>

@@ -7,6 +7,7 @@ import Login from '../Register/Login'
 import Signup from '../Register/Signup'
 import Contact from '../User/components/Contact'
 import FeaturePage from '../User/FeaturePage'
+import BookingPage from '../../Components/Slot/BookingPage'
 
 const CustomerRouters = () => {
   return (
@@ -18,6 +19,7 @@ const CustomerRouters = () => {
           <Route path='/signup' element={<Signup/>} />
           <Route path='/contact' element={<Contact/>} />
           <Route path='/features' element={<FeaturePage/>} />
+          <Route path='/booking/*' element={<BookingPage/>} /> 
         </Routes>
     </div>
   )
