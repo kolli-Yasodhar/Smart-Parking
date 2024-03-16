@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import CustomerRouters from './Pages/Router/CustomerRouters';
 import AdminRouters from './Pages/Router/AdminRouters';
-import BookingPage from './Components/Slot/BookingPage';
 
 
 function App() {
@@ -11,7 +10,6 @@ function App() {
         <Routes>
           <Route path='/*' element={<CustomerRouters/>} />
           <Route path='/admin/*' element={<AdminRouters/>} /> 
-          <Route path='/booking/*' element={<BookingPage/>} /> 
        </Routes>
 
    </div>
