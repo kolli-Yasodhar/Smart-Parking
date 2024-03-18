@@ -33,7 +33,7 @@ const Home = () => {
             />  */}
 
             <ReactTyped 
-              strings={[` Your Can Choose\nThe Best Spot\nAmong The\nVacancies !..`] }
+              strings={[` You Can Choose\nThe Best Spot\nAmong The\nVacancies !..`] }
               typeSpeed={100}
               loop
               backSpeed={100}

@@ -19,7 +19,7 @@ const CustomerRouters = () => {
           <Route path='/signup' element={<Signup/>} />
           <Route path='/contact' element={<Contact/>} />
           <Route path='/features' element={<FeaturePage/>} />
-          <Route path='/booking/*' element={<BookingPage/>} /> 
+          <Route path='/booking' element={<BookingPage/>} /> 
         </Routes>
     </div>
   )
