@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Modal,
   ModalOverlay,
@@ -8,8 +8,7 @@ import {
   ModalBody,
   ModalCloseButton,
   Button,
-  FormLabel,
-  Select,
+  useDisclosure,
 } from "@chakra-ui/react";
 import {
     Box,
@@ -21,6 +20,10 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import PaymentModal from "./PaymentModal";
+import { useDispatch, useSelector } from "react-redux";
+import { getPrices } from "../../Redux/Admin/Action";
+import { bookParkingSlot } from "../../Redux/User/Action";
 
 
 
@@ -34,25 +37,50 @@ const validateSchema = Yup.object().shape({
                     .required("Enter the number of hours")
   });
 
-const BookSlotModel = ({ isOpen, onClose }) => {
-    // const{ toast} = useToast();
-    const initialValues = { vehicleType: "", time: "", parkHours : "",  vehicleNumber : "" };
+  var bookvalues = null;
+
+const BookSlotModel = ({ Open, Close, slotId, vehicleType }) => {
+
+    const dispatch = useDispatch();
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const initialValues = { time: "", parkHours : "",  vehicleNumber : "" };
+    const prices = useSelector(store => store?.admin?.prices);
+    // console.log("Prices --- ", prices);
 
     function handleSubmit(values, actions) {
         //  dispatch(signInAction(values));
-        toast.success("Slot booked successfully ");
+        // toast.success("Slot booked successfully ");
         console.log("Submitting Values ")
         actions.setSubmitting(false);
+        values.slotId = slotId;
+        values.vehicleType = vehicleType;
+        bookvalues = values;
+        var type = values.vehicleType;
+        values.amount = (type === 'two') ? prices.twoWheelerPrice : (type === 'three' ? prices.threeWheelerPrice : prices.fourWheelerPrice);
+  
         console.log("values : ", values);
+        // console.log("Vehicle Typee -- ", type);
+        // console.log("Parking Price ======= ", values.amount)
+        // var amount_ = prices.type * (values.parkHours);
+        // console.log("Amount --- ", amount_);
+        // console.log("Book Values - ", bookvalues);
+        dispatch(bookParkingSlot(values))
+        onOpen();
+
       }
 
       function handleClick(e) {
-       
         onClose()
       }
+
+      useEffect(()=>{
+        dispatch(getPrices())
+      },[])
+
+
   return (
     <div>
-      <Modal isOpen={isOpen} onClose={onClose} isCentered >
+      <Modal isOpen={Open} onClose={Close} isCentered >
         <ModalOverlay backdropInvert={"80%"} backdropBlur={"2px"} />
         <ModalContent>
           <ModalHeader placeContent={"center"}>Enter your details </ModalHeader>
@@ -73,7 +101,7 @@ const BookSlotModel = ({ isOpen, onClose }) => {
                   {(formkProps) => (
                     <Form className="space-y-4">
 
-                      <Field name="vehicleType">
+                      {/* <Field name="vehicleType">
                         {({ field, form }) => (
                           <FormControl
                             isInvalid={form.errors.email && form.touched.email}
@@ -96,7 +124,7 @@ const BookSlotModel = ({ isOpen, onClose }) => {
                             </FormErrorMessage>
                           </FormControl>
                         )}
-                      </Field>
+                      </Field> */}
 
                       <Field name="time">
                         {({ field, form }) => (
@@ -196,7 +224,7 @@ const BookSlotModel = ({ isOpen, onClose }) => {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="red" mr={3} onClick={onClose}>
+            <Button colorScheme="red" mr={3} onClick={Close}>
               Cancel
             </Button>
             {/* <Button variant="ghost">Secondary Action</Button> */}
@@ -205,8 +233,10 @@ const BookSlotModel = ({ isOpen, onClose }) => {
         </ModalContent>
       </Modal>
     
-      <ToastContainer 
-      />
+      <ToastContainer  />
+
+      {/* {console.log(bookvalues)} */}
+      <PaymentModal isOpen={isOpen}  onClose={onClose} bookvalues={bookvalues} />
      
     </div>
   );

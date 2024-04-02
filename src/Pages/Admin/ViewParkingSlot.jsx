@@ -9,51 +9,51 @@ const ViewParkingSlot = () => {
 
 
 
-      <div className='h-[67vh] w-full border'>
+      <div className=' w-full border'>
 
-        <div className='h-[10vh] flex items-center justify-center border'>
+        <div className='h-[10vh] flex items-center justify-center border bg-yellow-300'>
           <h1 className='text-2xl font-serif '>Two Wheeler Slots</h1>
         </div>
 
         <div className=''>
-          <GroupedSlots />
+          <GroupedSlots type={'two'} dontOpen={true} />
         </div>
 
-        <div>
-          <OccuipedAndFreeStatus/>
+        <div className=''>
+          <OccuipedAndFreeStatus type={'two'} />
         </div>
 
 
       </div>
 
-      <div className='h-[67vh] w-full border'>
+      <div className=' w-full border'>
 
-        <div className='h-[10vh] flex items-center justify-center border'>
+        <div className='h-[10vh] flex items-center justify-center border bg-yellow-300'>
           <h1 className='text-2xl font-serif'>Three Wheeler Slots</h1>
         </div>
 
         <div>
-          <GroupedSlots />
+          <GroupedSlots type={'three'} dontOpen={true} />
         </div>
 
         <div>
-            <OccuipedAndFreeStatus/>
+            <OccuipedAndFreeStatus type={'three'} />
         </div>
 
       </div>
 
-      <div className='h-[67vh] w-full border   '>
+      <div className=' w-full border   '>
 
-        <div className='h-[10vh] flex items-center justify-center border'>
+        <div className='h-[10vh] flex items-center justify-center border bg-yellow-300'>
           <h1 className='text-2xl font-serif'>Four Wheeler Slots</h1>
         </div>
 
         <div>
-          <GroupedSlots />
+          <GroupedSlots type={'four'} dontOpen={true}/>
         </div>
 
         <div>
-          <OccuipedAndFreeStatus/>
+          <OccuipedAndFreeStatus type={'four'}/>
         </div>
 
       </div>

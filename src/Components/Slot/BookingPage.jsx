@@ -12,15 +12,15 @@ function BookingPage()  {
         <div className='bg-blue-100 h-full pb-10'>
             <div className='p-4 space-y-2 shadow-sm'>
                 <h1 className='text-2xl text-center'>Two Wheeler </h1>
-                <GroupedSlots  />
+                <GroupedSlots type={'two'}  />
             </div>
             <div className='p-4 space-y-2 shadow-sm'>
                 <h1 className='text-2xl text-center'>Three Wheeler </h1>
-                <GroupedSlots />
+                <GroupedSlots type={'three'} />
             </div>
             <div className='p-4 space-y-2 shadow-sm'>
                 <h1 className='text-2xl text-center'>Four Wheeler </h1>
-                <GroupedSlots/>
+                <GroupedSlots type={'four'} />
             </div>
         </div>
        

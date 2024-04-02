@@ -7,8 +7,10 @@ import {
 } from "@chakra-ui/react";
 import { Formik, Form, Field } from "formik";
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
+import { signInAction } from "../../Redux/Auth/Action";
 
 const validateSchema = Yup.object().shape({
   email: Yup.string()
@@ -22,11 +24,15 @@ const validateSchema = Yup.object().shape({
 const Login = () => {
   const initialValues = { email: "", password: "" };
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   function handleSubmit(values, actions) {
     //  dispatch(signInAction(values));
     actions.setSubmitting(false);
     console.log("values : ", values);
+    const data = values;
+    dispatch(signInAction(data));
+    navigate("/")
   }
 
   function handleNavigate() {

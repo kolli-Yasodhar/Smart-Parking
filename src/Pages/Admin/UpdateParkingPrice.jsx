@@ -1,9 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { getPrices, updateParkingPrices } from '../../Redux/Admin/Action';
+import { ToastContainer, toast } from 'react-toastify';
 
 const UpdateParkingPrice = () => {
-  const [newTwoWheelerPrice, setNewTwoWheelerPrice] = useState();
-  const [newThreeWheelerPrice, setNewThreeWheelerPrice] = useState();
-  const [newFourWheelerPrice, setNewFourWheelerPrice] = useState();
+
+  const dispatch = useDispatch();
+  var [newTwoWheelerPrice, setNewTwoWheelerPrice] = useState();
+  var [newThreeWheelerPrice, setNewThreeWheelerPrice] = useState();
+  var [newFourWheelerPrice, setNewFourWheelerPrice] = useState();
 
   function handleTwoWheelerPriceChange(e) {
       setNewTwoWheelerPrice(e.target.value);
@@ -18,8 +23,25 @@ const UpdateParkingPrice = () => {
   }
 
   function handleUpdatePrice() {
-    console.log("Parking prices updated ..!");
+    const data = {
+        twoWheelerPrice : Number(newTwoWheelerPrice),
+        threeWheelerPrice : Number(newThreeWheelerPrice),
+        fourWheelerPrice : Number(newFourWheelerPrice)
+    }
+    // console.log("Parking prices updated ..!", data);
+    dispatch(updateParkingPrices(data))
+    toast.success("Parking prices updated successfully !");
+    newTwoWheelerPrice = "";
+    
   }
+
+  const prices = useSelector(store => store?.admin?.prices);
+  const updatedPrices = useSelector(store => store?.admin?.updatedPrices)
+  // console.log("Prices ----> ", prices)
+
+  useEffect(()=>{
+    dispatch(getPrices());
+  }, [updatedPrices])
 
 
   return (
@@ -41,25 +63,26 @@ const UpdateParkingPrice = () => {
           <tbody className='text-2xl'>
             <tr > 
               <td>Two Wheeler</td>
-              <td>50$</td>
-              <td><input type="number"  onChange={(e) => handleTwoWheelerPriceChange(e)} placeholder='Enter New Value' /></td>
+              <td><span>₹   </span>{prices?.twoWheelerPrice}</td>
+              <td><input type="number" className='text-center'  onChange={(e) => handleTwoWheelerPriceChange(e)} placeholder='Enter New Value' /></td>
             </tr>
 
             <tr>
               <td>Three Wheeler</td>
-              <td>50$</td>
-              <td><input type="number" onChange={(e) => handleThreeWheelerPriceChange(e)}  placeholder='Enter New Value'/></td>
+              <td><span>₹ </span>{prices?.threeWheelerPrice}</td>
+              <td><input type="number" className='text-center' onChange={(e) => handleThreeWheelerPriceChange(e)}  placeholder='Enter New Value'/></td>
             </tr>
 
             <tr>
               <td>Four Wheeler</td>
-              <td>50$</td>
-              <td><input type="number" onChange={(e) => handleFourWheelerPriceChange(e)} placeholder='Enter New Value' /></td>
+              <td className='ml-2'><span>₹ </span>{prices?.fourWheelerPrice}</td>
+              <td ><input type="number" className='text-center'  onChange={(e) => handleFourWheelerPriceChange(e)} placeholder='Enter New Value' /></td>
             </tr>
           </tbody>
         </table>
 
         <button className='py-2 px-8 bg-green-400 rounded-md' onClick={handleUpdatePrice}>Update</button>
+        <ToastContainer/>
       </div>
 
     </div>
