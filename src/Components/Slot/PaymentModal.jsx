@@ -16,7 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from 'react'
 import { getPrices } from '../../Redux/Admin/Action';
 
-const PaymentModal = ({isOpen, onClose, bookvalues}) => {
+const PaymentModal = ({isOpen, onClose, price, amount, hour}) => {
 
   const dispatch = useDispatch();
 
@@ -62,17 +62,17 @@ const PaymentModal = ({isOpen, onClose, bookvalues}) => {
                 <Box p={2} className='space-y-1' >
                         <div className='flex justify-between'>
                             <p className='font-medium'>Per hour charge </p>
-                            <p className='text-green-400'>₹100</p>
+                            <p className='text-green-400'>₹{price}</p>
                         </div>
 
                         <div className='flex justify-between'>
                             <p>Total hours </p>
-                            <p>1</p>
+                            <p>{hour}</p>
                         </div>
 
                         <div className='flex justify-between'>
                             <p>Total Amount</p>
-                            <p className='text-green-400 font-bold' >₹200</p>
+                            <p className='text-green-400 font-bold' >₹{amount}</p>
                         </div>
                 </Box>
           </ModalBody>

@@ -22,7 +22,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PaymentModal from "./PaymentModal";
 import { useDispatch, useSelector } from "react-redux";
-import { getPrices } from "../../Redux/Admin/Action";
+import { getPriceByType, getPrices } from "../../Redux/Admin/Action";
 import { bookParkingSlot } from "../../Redux/User/Action";
 
 
@@ -38,14 +38,18 @@ const validateSchema = Yup.object().shape({
   });
 
   var bookvalues = null;
+  var amount = null;
 
 const BookSlotModel = ({ Open, Close, slotId, vehicleType }) => {
 
     const dispatch = useDispatch();
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const initialValues = { time: "", parkHours : "",  vehicleNumber : "" };
-    const prices = useSelector(store => store?.admin?.prices);
-    // console.log("Prices --- ", prices);
+    const initialValues = { bookedTime: "", parkHours : "",  vehicleNumber : "" };
+    const price = useSelector(store => store?.admin?.priceByType);
+    const data = {
+      type : vehicleType
+    }
+    // console.log("Prices --- ", price);
 
     function handleSubmit(values, actions) {
         //  dispatch(signInAction(values));
@@ -53,18 +57,19 @@ const BookSlotModel = ({ Open, Close, slotId, vehicleType }) => {
         console.log("Submitting Values ")
         actions.setSubmitting(false);
         values.slotId = slotId;
-        values.vehicleType = vehicleType;
+        // values.vehicleType = vehicleType;
         bookvalues = values;
-        var type = values.vehicleType;
-        values.amount = (type === 'two') ? prices.twoWheelerPrice : (type === 'three' ? prices.threeWheelerPrice : prices.fourWheelerPrice);
+        // var type = vehicleType;
+        amount =  price * values.parkHours;
   
         console.log("values : ", values);
+        // console.log("Amount = ", amount);
         // console.log("Vehicle Typee -- ", type);
         // console.log("Parking Price ======= ", values.amount)
         // var amount_ = prices.type * (values.parkHours);
         // console.log("Amount --- ", amount_);
         // console.log("Book Values - ", bookvalues);
-        dispatch(bookParkingSlot(values))
+        // dispatch(bookParkingSlot(values))
         onOpen();
 
       }
@@ -72,9 +77,9 @@ const BookSlotModel = ({ Open, Close, slotId, vehicleType }) => {
       function handleClick(e) {
         onClose()
       }
-
+      // console.log("Amount -- ", amount);
       useEffect(()=>{
-        dispatch(getPrices())
+        dispatch(getPriceByType(data));
       },[])
 
 
@@ -126,7 +131,7 @@ const BookSlotModel = ({ Open, Close, slotId, vehicleType }) => {
                         )}
                       </Field> */}
 
-                      <Field name="time">
+                      <Field name="bookedTime">
                         {({ field, form }) => (
                           <FormControl
                             isInvalid={
@@ -136,13 +141,13 @@ const BookSlotModel = ({ Open, Close, slotId, vehicleType }) => {
                             <label htmlFor="time" className="mb-2">
                               Visit Time <sup className="text-red-500">*</sup>{" "}
                             </label>
-                            <Input
+                            <input
                               type="time"
                               className="w-full"
                               {...field}
-                              id="time"
+                              id="bookedTime"
                               placeholder="At time you visit "
-                            ></Input>
+                            ></input>
 
                             <FormErrorMessage>
                               {" "}
@@ -236,7 +241,7 @@ const BookSlotModel = ({ Open, Close, slotId, vehicleType }) => {
       <ToastContainer  />
 
       {/* {console.log(bookvalues)} */}
-      <PaymentModal isOpen={isOpen}  onClose={onClose} bookvalues={bookvalues} />
+      <PaymentModal isOpen={isOpen}  onClose={onClose} price={price} amount={amount} hour={initialValues.parkHours}  />
      
     </div>
   );

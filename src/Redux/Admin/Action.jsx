@@ -1,5 +1,5 @@
 import { API_BASE_URL, api } from "../../Config/Config"
-import { ADD_SLOTS, FIND_SLOTS, GET_PRICES, UPDATE_PRICES } from "./ActionType";
+import { ADD_SLOTS, FIND_SLOTS, GET_PRICES, GET_PRICES_BY_TYPE, UPDATE_PRICES } from "./ActionType";
 
 
 export const addSlots = (data) => async (dispatch) => {
@@ -68,5 +68,24 @@ export const updateParkingPrices = (data) => async (dispatch) => {
 
         console.log("Error occured while updating the parking prices ", error);
 
+    }
+}
+
+export const getPriceByType = (data) => async (dispatch) => {
+    try {
+        
+        const res = await api.get(`/api/prices/${data.type}`);
+
+        const response = res.data;
+
+        dispatch({
+            type : GET_PRICES_BY_TYPE,
+            payload : response,
+        })
+
+        // console.log("Successfully fetched the Prices By Type - ", response);
+        
+    } catch (error) {
+        console.log("Error occured while fetching the price by TYPE - ", error);
     }
 }
