@@ -20,6 +20,7 @@ const PaymentModal = ({isOpen, onClose, price, amount, hour}) => {
 
   const dispatch = useDispatch();
 
+
   // const vehicleType = bookvalues.vehicleType;
   // console.log("Vehicle Type --", vehicleType+"WheelerPrice");
   // console.log("Prices --", prices);
@@ -29,13 +30,11 @@ const PaymentModal = ({isOpen, onClose, price, amount, hour}) => {
   
   function handlePayment() {
 
-    
-
   }
-
-  useEffect(()=>{
-    dispatch(getPrices())
-  },[])
+  
+  // console.log("Price - ", price);
+  // console.log("Hours - ", hour);
+  // console.log("Amount - ", amount);
 
   return (
     <div>

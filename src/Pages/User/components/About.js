@@ -35,29 +35,7 @@ const About = () => {
         <div className="about-buttons-container">
           <button className="secondary-button">Learn More</button>
           <button className="watch-video-button">
-            <BsFillPlayCircleFill /> Watch Demo Parking 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            <BsFillPlayCircleFill /> Watch Demo Parking
             Video
           </button>
         </div> */}
