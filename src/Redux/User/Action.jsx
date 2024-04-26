@@ -6,7 +6,7 @@ export const findReqUser = (jwt) => async (dispatch) => {
     // console.log("J W T -- > ", jwt);
     try {
         console.log("Hello --")
-        const res = await api.get(`${API_BASE_URL}/api/users/profile`, jwt);
+        const res = await api.get(`/api/users/profile`, jwt);
 
         const reqUser = res.data;
 
@@ -23,7 +23,7 @@ export const bookParkingSlot = (data) => async (dispatch) => {
 
     try {
         
-        const res = await api.post(`${API_BASE_URL}/api/slot/book`, data);
+        const res = await api.post(`/api/slot/book`, data);
 
         const response = res.data;
 
@@ -41,7 +41,7 @@ export const clearParkingSlot = (data) => async (dispatch) => {
    
     try {
         
-        const res = await api.put(`${API_BASE_URL}/freeup/slot`, data);
+        const res = await api.put(`/freeup/slot`, data);
        
         const response = res.data;
         

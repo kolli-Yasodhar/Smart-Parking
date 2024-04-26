@@ -20,35 +20,14 @@ const PaymentModal = ({isOpen, onClose, price, amount, hour}) => {
 
   const dispatch = useDispatch();
 
-  // const vehicleType = bookvalues.vehicleType;
-  // console.log("Vehicle Type --", vehicleType+"WheelerPrice");
-  // console.log("Prices --", prices);
-  // console.log("Vehicle Parking Price --", prices.vehicleType);
-  // values.amount = prices?.vehicletype * values?.parkHours;
-  // console.log(bookvalues)
-  
   function handleBookingSlot() {
-
-    // dispatch(bookParkingSlot(values));
-  
-    // const minutes = values.parkHours * 60;
-  
-    // setTimeout(() => {
-    //   // const bookedSlot = useSelector(store => store?.user?.bookedSlot);
-      
-    //   const data = {
-    //     slotId : values.slotId,
-    //   }
-  
-    //   dispatch(clearParkingSlot(data));
-  
-    // }, 1000*60*minutes);
-
+    console.log("Payment Initiated ..!");
+    // dispatch()
   }
-
-  useEffect(()=>{
-    dispatch(getPrices())
-  },[])
+  
+  // console.log("Price - ", price);
+  // console.log("Hours - ", hour);
+  // console.log("Amount - ", amount);
 
   return (
     <div>

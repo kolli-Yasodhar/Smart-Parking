@@ -22,7 +22,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PaymentModal from "./PaymentModal";
 import { useDispatch, useSelector } from "react-redux";
-import { getPriceByType, getPrices } from "../../Redux/Admin/Action";
+import { findAllSlots, getPriceByType, getPrices } from "../../Redux/Admin/Action";
 import { bookParkingSlot } from "../../Redux/User/Action";
 
 
@@ -39,20 +39,21 @@ const validateSchema = Yup.object().shape({
 
   var bookvalues = null;
   var amount = null;
+  var hours = null;
+  var price = null;
 
-const BookSlotModel = ({ Open, Close, slotId, vehicleType }) => {
+const BookSlotModel = ({ Open, Close, slotId, vehicleType, status }) => {
 
     const dispatch = useDispatch();
     const { isOpen, onOpen, onClose } = useDisclosure()
     const initialValues = { bookedTime: "", parkHours : "",  vehicleNumber : "" };
-    const price = useSelector(store => store?.admin?.priceByType);
-    const data = {
-      type : vehicleType
-    }
-    // console.log("Prices --- ", price);
+    const slotPrice = useSelector(store => store?.admin?.priceByType);
+   
+    console.log("Price You got to pay in BookSlot Model -- ", slotPrice);
+    // console.log("Vehicle Type recived in bookSlot Model - ", vehicleType);
 
-    function handleSubmit(values, actions) {
-        //  dispatch(signInAction(values));
+   function handleSubmit(values, actions) {
+     //  dispatch(signInAction(values));
         // toast.success("Slot booked successfully ");
         console.log("Submitting Values ")
         actions.setSubmitting(false);
@@ -60,9 +61,16 @@ const BookSlotModel = ({ Open, Close, slotId, vehicleType }) => {
         // values.vehicleType = vehicleType;
         bookvalues = values;
         // var type = vehicleType;
-        amount =  price * values.parkHours;
-  
+        hours = values.parkHours;
+        // const vtype = vehicleType + "WheelerPrice";
+        // console.log("Price Value - ",prices.vtype);
+      //  price = prices.vtype;
+        amount =  slotPrice * hours;
+        // console.log("Price And Amount = ", price, amount);
         console.log("values : ", values);
+        // console.log("Callling Book Slot dispathcer")
+        // dispatch(bookParkingSlot(values));
+        // console.log("Booked Slot ")
         // console.log("Amount = ", amount);
         // console.log("Vehicle Typee -- ", type);
         // console.log("Parking Price ======= ", values.amount)
@@ -71,21 +79,25 @@ const BookSlotModel = ({ Open, Close, slotId, vehicleType }) => {
         // console.log("Book Values - ", bookvalues);
         // dispatch(bookParkingSlot(values))
         onOpen();
-
+        // dispatch(findAllSlots()); // To refresh the slots Page
       }
-
+      
       function handleClick(e) {
         onClose()
       }
       // console.log("Amount -- ", amount);
       useEffect(()=>{
+       const data = {
+        type : localStorage.getItem("vType")
+      }
         dispatch(getPriceByType(data));
       },[])
 
 
   return (
     <div>
-      <Modal isOpen={Open} onClose={Close} isCentered >
+     { status === "free" &&
+       <Modal isOpen={Open} onClose={Close} isCentered >
         <ModalOverlay backdropInvert={"80%"} backdropBlur={"2px"} />
         <ModalContent>
           <ModalHeader placeContent={"center"}>Enter your details </ModalHeader>
@@ -236,12 +248,12 @@ const BookSlotModel = ({ Open, Close, slotId, vehicleType }) => {
             
           </ModalFooter>
         </ModalContent>
-      </Modal>
+      </Modal>}
     
       <ToastContainer  />
 
       {/* {console.log(bookvalues)} */}
-      <PaymentModal isOpen={isOpen}  onClose={onClose} price={price} amount={amount} hour={initialValues.parkHours}  />
+      <PaymentModal isOpen={isOpen}  onClose={onClose} price={slotPrice} amount={amount} hour={hours}  />
      
     </div>
   );
