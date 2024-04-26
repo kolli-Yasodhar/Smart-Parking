@@ -27,22 +27,9 @@ const PaymentModal = ({isOpen, onClose, price, amount, hour}) => {
   // values.amount = prices?.vehicletype * values?.parkHours;
   // console.log(bookvalues)
   
-  function handleBookingSlot() {
+  function handlePayment() {
 
-    // dispatch(bookParkingSlot(values));
-  
-    // const minutes = values.parkHours * 60;
-  
-    // setTimeout(() => {
-    //   // const bookedSlot = useSelector(store => store?.user?.bookedSlot);
-      
-    //   const data = {
-    //     slotId : values.slotId,
-    //   }
-  
-    //   dispatch(clearParkingSlot(data));
-  
-    // }, 1000*60*minutes);
+    
 
   }
 
@@ -81,7 +68,7 @@ const PaymentModal = ({isOpen, onClose, price, amount, hour}) => {
             <Button colorScheme='blue' mr={3} onClick={onClose}>
               Close
             </Button>
-            <Button variant='ghost' onClick={handleBookingSlot} >Pay</Button>
+            <Button variant='ghost' onClick={handlePayment} >Pay</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

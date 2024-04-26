@@ -22,7 +22,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PaymentModal from "./PaymentModal";
 import { useDispatch, useSelector } from "react-redux";
-import { getPriceByType, getPrices } from "../../Redux/Admin/Action";
+// import { getPriceByType, getPrices } from "../../Redux/Admin/Action";
 import { bookParkingSlot } from "../../Redux/User/Action";
 
 
@@ -39,17 +39,18 @@ const validateSchema = Yup.object().shape({
 
   var bookvalues = null;
   var amount = null;
+  var priceByType = 0;
 
-const BookSlotModel = ({ Open, Close, slotId, vehicleType }) => {
+const BookSlotModel = ({ Open, Close, slotId, vehicleType, prices }) => {
 
     const dispatch = useDispatch();
     const { isOpen, onOpen, onClose } = useDisclosure()
     const initialValues = { bookedTime: "", parkHours : "",  vehicleNumber : "" };
-    const price = useSelector(store => store?.admin?.priceByType);
     const data = {
       type : vehicleType
     }
-    // console.log("Prices --- ", price);
+    
+    // console.log("Prices by props = ", prices);
 
     function handleSubmit(values, actions) {
         //  dispatch(signInAction(values));
@@ -60,9 +61,14 @@ const BookSlotModel = ({ Open, Close, slotId, vehicleType }) => {
         // values.vehicleType = vehicleType;
         bookvalues = values;
         // var type = vehicleType;
-        amount =  price * values.parkHours;
-  
-        console.log("values : ", values);
+        var wheelerTypePrice = vehicleType + "WheelerPrice";
+        priceByType = (vehicleType == "two" ? prices.twoWheelerPrice : (vehicleType == "three" ? prices.threeWheelerPrice : prices.fourWheelerPrice));
+        amount =  priceByType * values.parkHours;
+
+        console.log("WheelerTypePrice - ", wheelerTypePrice);
+        console.log("Price by type = ", priceByType);
+        console.log("Amount - ", amount);
+        // console.log("values : ", values);
         // console.log("Amount = ", amount);
         // console.log("Vehicle Typee -- ", type);
         // console.log("Parking Price ======= ", values.amount)
@@ -78,9 +84,7 @@ const BookSlotModel = ({ Open, Close, slotId, vehicleType }) => {
         onClose()
       }
       // console.log("Amount -- ", amount);
-      useEffect(()=>{
-        dispatch(getPriceByType(data));
-      },[])
+     
 
 
   return (
@@ -241,7 +245,7 @@ const BookSlotModel = ({ Open, Close, slotId, vehicleType }) => {
       <ToastContainer  />
 
       {/* {console.log(bookvalues)} */}
-      <PaymentModal isOpen={isOpen}  onClose={onClose} price={price} amount={amount} hour={initialValues.parkHours}  />
+      <PaymentModal isOpen={isOpen}  onClose={onClose} price={priceByType} amount={amount} hour={bookvalues?.parkHours}  />
      
     </div>
   );
