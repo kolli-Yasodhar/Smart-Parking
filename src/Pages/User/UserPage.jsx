@@ -1,11 +1,11 @@
 import "./Style.css";
 import React from 'react'
-import Home from "./components/Home";
+import Home from "./Home";
 import About from "./components/About";
 import Work from "./components/Work";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
-import Navbar from "./components/Navbar";
+import Navbar from './Navbar';
 
 
 function UserPage(){

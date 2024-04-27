@@ -13,28 +13,24 @@ import { bookParkingSlot, clearParkingSlot } from "../../Redux/User/Action";
 import { useDispatch, useSelector } from "react-redux";
 
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { getPrices } from '../../Redux/Admin/Action';
+import { createPayment } from '../../Redux/Payment/Action';
 
 const PaymentModal = ({isOpen, onClose, price, amount, hour}) => {
 
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
 
 
-  // const vehicleType = bookvalues.vehicleType;
-  // console.log("Vehicle Type --", vehicleType+"WheelerPrice");
-  // console.log("Prices --", prices);
-  // console.log("Vehicle Parking Price --", prices.vehicleType);
-  // values.amount = prices?.vehicletype * values?.parkHours;
-  // console.log(bookvalues)
   
   function handlePayment() {
-
+    const orderId = localStorage.getItem("orderId");
+    {loading && <span class="loader"></span>}
+    dispatch(createPayment(orderId));
+    setLoading(false);
   }
-  
-  // console.log("Price - ", price);
-  // console.log("Hours - ", hour);
-  // console.log("Amount - ", amount);
+   
 
   return (
     <div>

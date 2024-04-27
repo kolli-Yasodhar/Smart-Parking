@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { findReqUser } from "../../../Redux/User/Action";
+import { findReqUser } from "../../Redux/User/Action";
 import { Avatar } from "@chakra-ui/react";
 import { Menu, MenuItem } from "@mui/material";
 // import { deepPurple } from "@mui/material/colors";
@@ -16,7 +16,9 @@ const Navbar = () => {
   console.log("reqUser - ", user)
 
   useEffect(() => {
+    if(token) {
       dispatch(findReqUser(token));
+    }
   },[token])
 
   function handlecloseMenu() {

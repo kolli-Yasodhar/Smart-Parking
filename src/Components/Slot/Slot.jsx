@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 
 
 
-const Slot = ({dontOPen, slotId, vehicleType, prices}) => {
+const Slot = ({dontOPen, slotId, vehicleType, prices, status}) => {
 
 
     const location = useLocation();
@@ -63,7 +63,7 @@ const Slot = ({dontOPen, slotId, vehicleType, prices}) => {
 
 
 
-       { !dontOPen && <BookSlotModel Open={isOpen} Close={onClose} slotId={slotId} vehicleType={vehicleType} prices={prices} />}
+       { !dontOPen && <BookSlotModel Open={isOpen} Close={onClose} slotId={slotId} vehicleType={vehicleType} prices={prices} status={status} />}
 
 
         

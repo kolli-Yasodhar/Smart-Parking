@@ -27,7 +27,7 @@ import { useDispatch, useSelector } from "react-redux";
 // =======
 import { findAllSlots, getPriceByType, getPrices } from "../../Redux/Admin/Action";
 // >>>>>>> 69aac93c2cd34452166b67bd54c277d567736f39
-import { bookParkingSlot } from "../../Redux/User/Action";
+import { bookParkingSlot, clearParkingSlot } from "../../Redux/User/Action";
 
 
 
@@ -46,52 +46,48 @@ const validateSchema = Yup.object().shape({
 
   var priceByType = 0;
 
-const BookSlotModel = ({ Open, Close, slotId, vehicleType, prices }) => {
+const BookSlotModel = ({ Open, Close, slotId, vehicleType, prices, status }) => {
 
     const dispatch = useDispatch();
     const { isOpen, onOpen, onClose } = useDisclosure()
     const initialValues = { bookedTime: "", parkHours : "",  vehicleNumber : "" };
 
-    const data = {
-      type : vehicleType
-    }
-    
-    // console.log("Prices by props = ", prices);
-
 
    function handleSubmit(values, actions) {
-     //  dispatch(signInAction(values));
-        // toast.success("Slot booked successfully ");
+     
         console.log("Submitting Values ")
         actions.setSubmitting(false);
         values.slotId = slotId;
-        // values.vehicleType = vehicleType;
         bookvalues = values;
-        // var type = vehicleType;
 
         var wheelerTypePrice = vehicleType + "WheelerPrice";
         priceByType = (vehicleType == "two" ? prices.twoWheelerPrice : (vehicleType == "three" ? prices.threeWheelerPrice : prices.fourWheelerPrice));
         amount =  priceByType * values.parkHours;
+        values.amount = amount;
+        // console.log("WheelerTypePrice - ", wheelerTypePrice);
+        // console.log("Price by type = ", priceByType);
+        // console.log("Amount - ", amount);
+        console.log("Values = ", values);
 
-        console.log("WheelerTypePrice - ", wheelerTypePrice);
-        console.log("Price by type = ", priceByType);
-        console.log("Amount - ", amount);
-        // console.log("values : ", values);
-        // console.log("Amount = ", amount);
-        // console.log("Vehicle Typee -- ", type);
-        // console.log("Parking Price ======= ", values.amount)
-        // var amount_ = prices.type * (values.parkHours);
-        // console.log("Amount --- ", amount_);
-        // console.log("Book Values - ", bookvalues);
-        // dispatch(bookParkingSlot(values))
+        dispatch(bookParkingSlot(values))
+        // const delay = values.parkHours * 60 * 60 * 1000;
+        // console.log("Delay Time in millseconds -- ", delay);
+        console.log("Before setTimeOut")
+       
+        // setTimeout(() => {
+        //   console.log("Vehicle parking time is over on slot id -- ", slotId);
+        // }, delay);
+        
+        // console.log("After setTimeOut");
         onOpen();
-        // dispatch(findAllSlots()); // To refresh the slots Page
+
+  
       }
       
       function handleClick(e) {
         onClose()
       }
-      // console.log("Amount -- ", amount);
+      
 
 
   return (

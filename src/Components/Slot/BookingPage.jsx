@@ -2,15 +2,31 @@ import React, { useEffect } from 'react'
 import GroupedSlots from '../Grouped Slots/GroupedSlots'
 import { useDispatch, useSelector } from 'react-redux';
 import { getPrices } from '../../Redux/Admin/Action';
+import { useLocation } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+// import 'react-toastify/dist/ReactToastify.css';
 
 function BookingPage()  {
     
     const dispatch = useDispatch();
 
     const prices = useSelector(store => store?.admin?.prices);
+    const location = useLocation();
+    // console.log("Location = ", location.pathname.split("/")[1] );
+    // const path = location.pathname.split("/")[1];
 
+    
 
+    
+    
+    
     useEffect(()=>{
+        if(localStorage.getItem("slotBooked")) {
+            toast.success("Slot Booked Successfully ..!", {
+                toastId : "1"
+            });
+        }
         dispatch(getPrices());
       },[])
 
@@ -37,6 +53,7 @@ function BookingPage()  {
             </div>
         </div>
        
+       <ToastContainer/>
      
     </div>
   )
