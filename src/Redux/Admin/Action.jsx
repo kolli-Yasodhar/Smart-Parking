@@ -1,12 +1,12 @@
 import { API_BASE_URL, api } from "../../Config/Config"
-import { ADD_SLOTS, FIND_SLOTS, GET_PRICES, UPDATE_PRICES } from "./ActionType";
+import { ADD_SLOTS, FIND_SLOTS, GET_PRICES, GET_PRICES_BY_TYPE, UPDATE_PRICES } from "./ActionType";
 
 
 export const addSlots = (data) => async (dispatch) => {
 
     try {
         
-        const res = await api.post(`${API_BASE_URL}/admin/slots/create`, data);
+        const res = await api.post(`/admin/slots/create`, data);
 
         const response = res.data;
         dispatch({type : ADD_SLOTS, payload : response});
@@ -23,7 +23,7 @@ export const findAllSlots = () => async (dispatch) => {
 
     try {
         
-        const res = await api.get(`${API_BASE_URL}/api/slot/all`);
+        const res = await api.get(`/api/slot/all`);
 
         const response = res.data;
 
@@ -40,7 +40,7 @@ export const findAllSlots = () => async (dispatch) => {
 export const getPrices = () => async (dispatch) => {
     try {
         
-        const res = await api.get(`${API_BASE_URL}/api/prices/`);
+        const res = await api.get(`/api/prices/`);
 
         const response = res.data;
 
@@ -56,7 +56,7 @@ export const getPrices = () => async (dispatch) => {
 export const updateParkingPrices = (data) => async (dispatch) => {
     try {
         
-        const res = await api.post(`${API_BASE_URL}/admin/prices/update`, data);
+        const res = await api.post(`/admin/prices/update`, data);
 
         const response = res.data;
 
@@ -68,5 +68,24 @@ export const updateParkingPrices = (data) => async (dispatch) => {
 
         console.log("Error occured while updating the parking prices ", error);
 
+    }
+}
+
+export const getPriceByType = (data) => async (dispatch) => {
+    try {
+        
+        const res = await api.get(`/api/prices/${data.type}`);
+
+        const response = res.data;
+
+        dispatch({
+            type : GET_PRICES_BY_TYPE,
+            payload : response,
+        })
+
+        console.log("Successfully fetched the Prices By Type - ", response);
+        
+    } catch (error) {
+        console.log("Error occured while fetching the price by TYPE - ", error);
     }
 }

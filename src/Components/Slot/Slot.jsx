@@ -6,7 +6,7 @@ import { TiTick } from "react-icons/ti";
 import { useLocation } from 'react-router-dom';
 
 
-const Slot = ({dontOPen, slotId, vehicleType}) => {
+const Slot = ({dontOPen, slotId, vehicleType, status}) => {
 
     const location = useLocation();
     const path = location.pathname.split('/').at(-2);
@@ -37,6 +37,7 @@ const Slot = ({dontOPen, slotId, vehicleType}) => {
     //  console.log("Slots id SELECTED - ", slotId);
     }
 
+    // console.log("Vehicle Type in slot.jsx file - ", vehicleType);
 
     // useEffect(()=>{
       
@@ -47,9 +48,9 @@ const Slot = ({dontOPen, slotId, vehicleType}) => {
   return (
     <div>
         <div onClick={handleClick}
-         className={`slot w-[4vw] h-[4vw] border bg-green-400 rounded-md flex justify-center items-center
+         className={`slot w-[4vw] h-[4vw] border ${status === "free" ?  "bg-green-400 cursor-pointer" : "bg-gray-400"} rounded-md flex justify-center items-center
              transition-all duration-100
-          shadow-md cursor-pointer relative ${selected ? "scale-90" : ""} `} 
+          shadow-md  relative ${selected ? "scale-90" : ""} `} 
           onMouseEnter={handleVisibility}
           onMouseLeave={handleVisibility}
         >
@@ -59,7 +60,7 @@ const Slot = ({dontOPen, slotId, vehicleType}) => {
         </div>
 
 
-       { !dontOPen && <BookSlotModel Open={isOpen} Close={onClose} slotId={slotId} vehicleType={vehicleType} />}
+       { !dontOPen && <BookSlotModel Open={isOpen} Close={onClose} slotId={slotId} vehicleType={vehicleType} status={status} />}
 
         
     </div>
