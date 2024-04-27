@@ -28,7 +28,7 @@ export const bookParkingSlot = (data) => async (dispatch) => {
         const response = res.data;
 
         dispatch({type : BOOK_SLOT, payload : response});
-
+        localStorage.setItem("orderId", response.id);
         console.log("Slot Booked Successfully ", response);
 
     } catch (error) {
@@ -41,7 +41,7 @@ export const clearParkingSlot = (data) => async (dispatch) => {
    
     try {
         
-        const res = await api.put(`/freeup/slot`, data);
+        const res = await api.put(`/api/slot/freeup`, data);
        
         const response = res.data;
         

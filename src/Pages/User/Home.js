@@ -1,7 +1,7 @@
 import React from "react";
-import BannerBackground from "../Assets/home-banner-background.png";
-import BannerImage from "../Assets/home-banner-image.jpg";
-import ParkingImg from '../Assets/ParkingImg.svg';
+import BannerBackground from "./Assets/home-banner-background.png";
+import BannerImage from "./Assets/home-banner-image.jpg";
+import ParkingImg from './Assets/ParkingImg.svg';
 import { FiArrowRight } from "react-icons/fi";
 import { TypeAnimation } from "react-type-animation";
 import { ReactTyped } from "react-typed";

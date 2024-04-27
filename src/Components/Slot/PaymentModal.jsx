@@ -13,21 +13,24 @@ import { bookParkingSlot, clearParkingSlot } from "../../Redux/User/Action";
 import { useDispatch, useSelector } from "react-redux";
 
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { getPrices } from '../../Redux/Admin/Action';
+import { createPayment } from '../../Redux/Payment/Action';
 
 const PaymentModal = ({isOpen, onClose, price, amount, hour}) => {
 
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
 
-  function handleBookingSlot() {
-    console.log("Payment Initiated ..!");
-    // dispatch()
-  }
+
   
-  // console.log("Price - ", price);
-  // console.log("Hours - ", hour);
-  // console.log("Amount - ", amount);
+  function handlePayment() {
+    const orderId = localStorage.getItem("orderId");
+    {loading && <span class="loader"></span>}
+    dispatch(createPayment(orderId));
+    setLoading(false);
+  }
+   
 
   return (
     <div>
@@ -60,7 +63,7 @@ const PaymentModal = ({isOpen, onClose, price, amount, hour}) => {
             <Button colorScheme='blue' mr={3} onClick={onClose}>
               Close
             </Button>
-            <Button variant='ghost' onClick={handleBookingSlot} >Pay</Button>
+            <Button variant='ghost' onClick={handlePayment} >Pay</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

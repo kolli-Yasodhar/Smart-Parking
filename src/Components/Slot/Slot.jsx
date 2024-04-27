@@ -6,7 +6,9 @@ import { TiTick } from "react-icons/ti";
 import { useLocation } from 'react-router-dom';
 
 
-const Slot = ({dontOPen, slotId, vehicleType, status}) => {
+
+const Slot = ({dontOPen, slotId, vehicleType, prices, status}) => {
+
 
     const location = useLocation();
     const path = location.pathname.split('/').at(-2);
@@ -60,7 +62,9 @@ const Slot = ({dontOPen, slotId, vehicleType, status}) => {
         </div>
 
 
-       { !dontOPen && <BookSlotModel Open={isOpen} Close={onClose} slotId={slotId} vehicleType={vehicleType} status={status} />}
+
+       { !dontOPen && <BookSlotModel Open={isOpen} Close={onClose} slotId={slotId} vehicleType={vehicleType} prices={prices} status={status} />}
+
 
         
     </div>
