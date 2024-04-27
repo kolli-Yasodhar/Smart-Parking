@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar";
 import mail from '../Assets/mail.png'
 import Footer from "./Footer";
 

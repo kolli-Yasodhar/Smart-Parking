@@ -1,4 +1,4 @@
-import { API_BASE_URL, api } from "../../Config/Config"
+import {  api } from "../../Config/Config"
 import { SIGN_IN, SIGN_UP } from "./ActionType";
 
 
@@ -6,7 +6,7 @@ export const signInAction = (data) => async (dispatch) => {
    
     try {
         
-        const res = await api.post(`${API_BASE_URL}/auth/signin`, data)
+        const res = await api.post(`/auth/signin`, data)
 
         const user = res.data;
         console.log("Sigin Response ", res);
@@ -31,7 +31,7 @@ export const signInAction = (data) => async (dispatch) => {
 export const signUpAction = (data) => async (dispatch) => {
     try {
         
-        const res = await api.post(`${API_BASE_URL}/auth/signup`, data);
+        const res = await api.post(`/auth/signup`, data);
 
         const user = res.data;
         if(user.token) {

@@ -27,7 +27,7 @@
     "react-router-dom": "^6.17.0",
     "react-scripts": "^5.0.1",
     "react-slick": "^0.30.2",
-    "react-toastify": "^10.0.5",
+    "react-toastify": "^8.0.0",
     "react-type-animation": "^3.2.0",
     "react-typed": "^2.0.12",
     "redux": "^5.0.0",
